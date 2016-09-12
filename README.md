@@ -7,10 +7,14 @@ To start a REPL simply:
 ```
 Or long-hand:
 ```bash
-  docker run -it --rm -v .:/var/app sleepyfox/racket
+  docker run -it --rm -v $(pwd):/var/app sleepyfox/racket
 ```
 
-To run a racket application of your own in the container:
+To run a racket application of your own in the container. Filename must be relative to current directory:
 ```bash
-  docker run -it --rm -v .:/var/app sleepyfox/racket _my_app_.rkt
+  make file src=_my_app.rkt
+```
+Or long-hand:
+```bash
+  docker run -it --rm -v $(pwd):/var/app sleepyfox/racket _my_app_.rkt
 ```
